@@ -1,43 +1,51 @@
 {
     const //vars
-        root = 'https://pr0gramm.com'
-    cleanNew = `${root}/new/!%20-tiktok`,
-        cleanTop = `${root}/top/!%20-tiktok`
+        root = 'https://pr0gramm.com',
+        Top = "top",
+        New = "new",
+        cleanNew = `${root}/${New}/!%20-tiktok`,
+        cleanTop = `${root}/${Top}/!%20-tiktok`;
     //custom filter
-    const filter = mode => {
+    const filter = arg => {
         //initial filtering
-        if (mode === 1) {
+        if (arg.mode === 1) {
             //coming from new
-            if (location.href !== cleanNew && (location.href === `${root}/new`)) {
+            if (location.href !== cleanNew && (location.href === `${root}/${New}`)) {
                 location.href = cleanNew;
             }
             //coming from top
             if (location.href !== cleanTop && (
-                    location.href === `${root}/` || location.href === `${root}/top`)) {
+                    location.href === `${root}/` || location.href === `${root}/${Top}`)) {
                 location.href = cleanTop;
-                
+
             }
         }
         //push
-        if (mode === 2) {
-
-			//push to clean top
-			if (location.href.startsWith(`${root}/new`)) {
-                location.href = cleanTop;
+        if (arg.mode === 2) {
+            let go = false;
+            switch (arg.url) {
+                case `/${New}`: //push to clean top
+                    location.href = cleanNew;
+                    break;
+                case `/${Top}`: //push to clean new
+                    location.href = cleanTop;
+                    break;
             }
-            //push to clean new
-            if (location.href.startsWith(`${root}/top`)) {
-                location.href = cleanNew;
-            }
+            return go;
         }
     }
 
     //initial filter
-    filter(1); {
+    filter({
+        mode: 1
+    }); {
         var realPushState = history.pushState;
         history.pushState = function(some, args, I, dunno) {
 
-            if (filter(2)) return void 0;
+            if (filter({
+                    mode: 2,
+                    url: arguments[2]
+                })) return void 0;
 
             //dun touch
             return realPushState.apply(history, arguments); // leave this line exactly as-is.
