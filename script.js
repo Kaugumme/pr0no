@@ -13,7 +13,7 @@
             if (location.href !== cleanNew && (location.href === `${root}/${New}`)) {
                 location.href = cleanNew;
             }
-            //coming from top
+            //coming from initial (root) or top
             if (location.href !== cleanTop && (
                     location.href === `${root}/` || location.href === `${root}/${Top}`)) {
                 location.href = cleanTop;
