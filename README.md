@@ -4,5 +4,4 @@ Clientscript, der Scheiße ausblendet.
 
 Bau dir deine eigene Filterblase, anstatt Scheißepostern einen zu blasen.
 
-Filter standardmäßig "tiktok" weg. Nutz die Suchleiste für deine eigenen Filter.
-
+Filter standardmäßig "tiktok" weg. Eigenen Filter bauen: https://pr0gramm.com/search
