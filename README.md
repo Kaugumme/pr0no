@@ -1,5 +1,5 @@
 # pr0no
 
-clientscript der scheisse ausblendet.
+Clientscript, der Scheiße ausblendet.
 
-bau dir deine einen filterblase.
+Bau dir deine eigene Filterblase anstatt Scheißepostern einen zu blasen.
