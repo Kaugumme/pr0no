@@ -1,13 +1,13 @@
 {
-    const //vars
+    const //script vars
         root = 'https://pr0gramm.com',
         Top = "top",
         New = "new",
         cleanNew = `${root}/${New}/!%20-tiktok`,
         cleanTop = `${root}/${Top}/!%20-tiktok`;
-    //custom filter
+    //custom filter method
     const filter = arg => {
-        //initial filtering
+        //initial filter mode
         if (arg.mode === 1) {
             //coming from new
             if (location.href !== cleanNew && (location.href === `${root}/${New}`)) {
@@ -20,7 +20,7 @@
 
             }
         }
-        //push
+        //push filter mode
         if (arg.mode === 2) {
             let go = false;
             switch (arg.url) {
@@ -35,20 +35,19 @@
         }
     }
 
-    //initial filter
+    //filter initial call
     filter({
         mode: 1
-    }); {
+    }); { //catch push crap
         var realPushState = history.pushState;
-        history.pushState = function(some, args, I, dunno) {
+        history.pushState = function() {
 
-            if (filter({
+            if (filter({ //ignore unfiltered pushies
                     mode: 2,
                     url: arguments[2]
                 })) return void 0;
-
-            //dun touch
-            return realPushState.apply(history, arguments); // leave this line exactly as-is.
+            //dun touch ( apply original push url)
+            return realPushState.apply(history, arguments);
         };
     }
 }
