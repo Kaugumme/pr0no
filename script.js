@@ -7,6 +7,10 @@
         cleanTop = `${root}/${Top}/!%20-tiktok`;
     //custom filter method
     const filter = arg => {
+            //reset search vars
+            document.querySelector('[name="q"]').value="";
+            document.getElementById("search-exclude-tags").value="";
+
         //initial filter mode
         if (arg.mode === 1) {
             //coming from new
@@ -17,7 +21,6 @@
             if (location.href !== cleanTop && (
                     location.href === `${root}/` || location.href === `${root}/${Top}`)) {
                 location.href = cleanTop;
-
             }
         }
         //push filter mode
