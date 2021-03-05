@@ -7,9 +7,13 @@
         cleanTop = `${root}/${Top}/!%20-tiktok`;
     //custom filter method
     const filter = arg => {
-            //reset search vars
-            document.querySelector('[name="q"]').value="";
-            document.getElementById("search-exclude-tags").value="";
+         //fancy tab
+         if(document.location.pathname.startsWith("/new") ||  (document.location.pathname.startsWith("/top") ){
+            document.title = "pr0>" + (document.location.pathname.startsWith("/new") ? "Neu" : "Beliebt")
+         }       
+        //reset search vars
+        document.querySelector('[name="q"]').value="";
+        document.getElementById("search-exclude-tags").value="";
 
         //initial filter mode
         if (arg.mode === 1) {
