@@ -8,7 +8,7 @@
     //custom filter method
     const filter = arg => {
          //fancy tab
-         if(document.location.pathname.startsWith("/new") ||  (document.location.pathname.startsWith("/top") ){
+         if(document.location.pathname.startsWith("/new") || document.location.pathname.startsWith("/top") ){
             document.title = "pr0>" + (document.location.pathname.startsWith("/new") ? "Neu" : "Beliebt")
          }       
         //reset search vars
